@@ -1,0 +1,85 @@
+import serial
+import time
+from datetime import datetime
+
+# Parameters
+baud_rates = [9600, 19200, 38400, 57600, 115200]
+data_bits = [
+    serial.FIVEBITS,
+    serial.SIXBITS,
+    serial.SEVENBITS,
+    serial.EIGHTBITS
+]
+parity_list = [
+    serial.PARITY_NONE,
+    serial.PARITY_EVEN,
+    serial.PARITY_ODD
+]
+stop_bits = [
+    serial.STOPBITS_ONE,
+    serial.STOPBITS_TWO
+]
+
+PORT = '/dev/ttyUSB1'
+LOG_FILE = "uart_log.txt"
+
+
+def log_result(message):
+    with open(LOG_FILE, "a") as f:
+        f.write(message + "\n")
+
+
+def test_uart():
+    # Write header once
+    log_result("\n===== UART TEST START =====")
+    log_result(f"Start Time: {datetime.now()}")
+    log_result("Baud,DataBits,Parity,StopBits,Result,Response")
+
+    for baud in baud_rates:
+        for db in data_bits:
+            for parity in parity_list:
+                for sb in stop_bits:
+                    timestamp = datetime.now()
+
+                    try:
+                        print(f"Testing: {baud}, {db}, {parity}, {sb}")
+
+                        ser = serial.Serial(
+                            port=PORT,
+                            baudrate=baud,
+                            bytesize=db,
+                            parity=parity,
+                            stopbits=sb,
+                            timeout=0.2
+                        )
+
+                        test_msg = b'\n'
+                        ser.write(test_msg)
+                        time.sleep(0.1)
+
+                        response = ser.read(10)
+
+                        if response==test_msg:
+                            result = "PASS"
+                        elif response:
+                            result="Data Miss Match"
+                        else:
+                            result = "FAIL"
+
+                        ser.close()
+
+                    except Exception as e:
+                        result = "ERROR"
+                        response = str(e)
+
+                    # Format log line
+                    log_line = f"{timestamp},{baud},{db},{parity},{sb},{result},{response}"
+                    log_result(log_line)
+
+    log_result(f"End Time: {datetime.now()}")
+    log_result("===== UART TEST END =====\n")
+
+
+if __name__ == "__main__":
+    test_uart()
+    print(f"\nLogs saved in {LOG_FILE}")

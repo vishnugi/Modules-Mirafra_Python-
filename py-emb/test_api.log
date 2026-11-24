@@ -1,0 +1,38 @@
+2026-04-01 16:25:29,584 - INFO -  * Restarting with stat
+2026-04-01 16:33:28,447 - INFO - Running ADD tests
+2026-04-01 16:33:28,572 - INFO - SUCCESS: ADD tests passed
+2026-04-01 16:35:57,396 - INFO - Running MUL tests
+2026-04-01 16:35:57,473 - INFO - SUCCESS: MUL tests passed
+2026-04-01 16:41:04,814 - INFO - Test execution started
+2026-04-01 16:41:04,944 - INFO - SUCCESS: All 15 tests passed
+2026-04-01 16:41:27,620 - INFO - Running SUB tests
+2026-04-01 16:41:27,691 - INFO - SUCCESS: SUB tests passed
+2026-04-01 17:05:47,602 - INFO - Test execution started
+2026-04-01 17:05:47,736 - INFO - Test1: test_add[1-2-3] → PASS
+2026-04-01 17:05:47,736 - INFO - Test2: test_add[2-3-5_0] → PASS
+2026-04-01 17:05:47,736 - INFO - Test3: test_add[-1-1-0] → PASS
+2026-04-01 17:05:47,736 - INFO - Test4: test_add[2-3-5_1] → PASS
+2026-04-01 17:05:47,736 - INFO - Test5: test_sub[1-1-0] → PASS
+2026-04-01 17:05:47,736 - INFO - Test6: test_sub[3-2-1] → PASS
+2026-04-01 17:05:47,736 - INFO - Test7: test_sub[-1-1--2] → PASS
+2026-04-01 17:05:47,736 - INFO - Test8: test_sub[-1--1-0] → PASS
+2026-04-01 17:05:47,736 - INFO - Test9: test_mul[1-1-1] → PASS
+2026-04-01 17:05:47,736 - INFO - Test10: test_mul[3-0-0] → PASS
+2026-04-01 17:05:47,736 - INFO - Test11: test_mul[-2-1--2] → PASS
+2026-04-01 17:05:47,736 - INFO - Test12: test_mul[-1--3-3] → PASS
+2026-04-01 17:05:47,736 - INFO - Test13: test_div[1-1-1] → PASS
+2026-04-01 17:05:47,736 - INFO - Test14: test_div[4-2-2] → PASS
+2026-04-01 17:05:47,736 - INFO - Test15: test_div[0-1-0] → PASS
+2026-04-01 17:05:47,736 - INFO - SUCCESS: All 15 tests passed
+2026-04-01 17:11:08,734 - INFO - Running ADD tests
+2026-04-01 17:11:08,909 - ERROR - ADD Test1: test_add[1-1-3] → FAIL
+2026-04-01 17:11:08,909 - INFO - ADD Test2: test_add[2-3-5_0] → PASS
+2026-04-01 17:11:08,909 - ERROR - ADD Test3: test_add[-1-0-0] → FAIL
+2026-04-01 17:11:08,909 - INFO - ADD Test4: test_add[2-3-5_1] → PASS
+2026-04-01 17:11:08,909 - ERROR - ERROR: ADD tests failed
+2026-04-01 17:17:18,680 - INFO - Running SUB tests
+2026-04-01 17:17:18,763 - INFO - SUB Test1: test_sub[1-1-0] → PASS
+2026-04-01 17:17:18,764 - INFO - SUB Test2: test_sub[3-2-1] → PASS
+2026-04-01 17:17:18,764 - INFO - SUB Test3: test_sub[-1-1--2] → PASS
+2026-04-01 17:17:18,764 - INFO - SUB Test4: test_sub[-1--1-0] → PASS
+2026-04-01 17:17:18,764 - INFO - SUCCESS: All SUB tests passed

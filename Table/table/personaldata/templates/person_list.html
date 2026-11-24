@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person List</title>
+</head>
+<body>
+    <h2>Person List</h2>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+
+        {% for person in persons %}
+        <tr>
+            <td>{{ person.name }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.age }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'add_person' %}">Add New</a>
+</body>
+</html>

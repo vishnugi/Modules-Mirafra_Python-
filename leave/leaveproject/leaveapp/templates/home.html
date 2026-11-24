@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave Application</title>
+</head>
+<body>
+
+    <h1>Leave Application</h1>
+
+    <a href="{% url 'apply_leave' %}">
+        <button>Apply Leave</button>
+    </a>
+
+    <hr>
+
+    <h2>Applied Leaves</h2>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for leave in leaves %}
+        <tr>
+            <td>{{ leave.name }}</td>
+            <td>{{ leave.date }}</td>
+            <td>{{ leave.status }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No leaves applied yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Tester</title>
+</head>
+<body>
+
+<h2>SRAM Memory Test</h2>
+
+<p id="test">Test: Idle</p>
+
+<div style="width: 100%; background: #ddd;">
+    <div id="bar" style="width: 0%; height: 30px; background: green;"></div>
+</div>
+
+<p id="progress">0%</p>
+<p id="speed">Speed: 0 MB/s</p>
+<p id="memory">Tested: 0 MB / 0 MB</p>
+
+<button onclick="startTest()">Start Test</button>
+
+<script>
+function startTest() {
+    fetch('/start');
+}
+
+function update() {
+    fetch('/status')
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("bar").style.width = data.progress + "%";
+        document.getElementById("progress").innerText = data.progress + "%";
+        document.getElementById("speed").innerText = "Speed: " + data.speed + " MB/s";
+        document.getElementById("test").innerText = "Test: " + data.test;
+        document.getElementById("memory").innerText =
+    "Tested: " + data.tested_mb + " MB / " + data.total_mb + " MB";
+    });
+}
+
+setInterval(update, 500);
+</script>
+
+</body>
+</html>
